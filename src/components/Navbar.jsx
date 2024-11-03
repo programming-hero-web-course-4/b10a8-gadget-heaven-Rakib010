@@ -5,22 +5,39 @@ import { FaRegHeart } from "react-icons/fa";
 
 const Navbar = () => {
   const links = (
-    <>
-      <NavLink to="/">
+    <div className="flex gap-6 text-lg">
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          `font-semibold ${isActive ? "" : "hover:text-purple-600"}`
+        }
+      >
         <a>Home</a>
       </NavLink>
-      <NavLink to="/statistics">
+
+      <NavLink
+        to="/statistics"
+        className={({ isActive }) =>
+          `font-semibold ${isActive ? "" : "hover:text-purple-500"}`
+        }
+      >
         <a>Statistics</a>
       </NavLink>
-      <NavLink to="/dashboard">
+
+      <NavLink
+        to="/dashboard"
+        className={({ isActive }) =>
+          `font-semibold ${isActive ? "" : "hover:text-purple-500"}`
+        }
+      >
         <a>Dashboard</a>
       </NavLink>
-    </>
+    </div>
   );
 
   return (
-    <div>
-      <div className="navbar bg-base-100">
+    <div className="">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,12 +63,12 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Gadget Heaven</a>
+          <a className="btn btn-ghost text-2xl">Gadget Heaven</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-4 text-xl">
           <p>
             <GrCart />
           </p>
