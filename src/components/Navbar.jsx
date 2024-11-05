@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { FaRegHeart } from "react-icons/fa";
+import { CartContext } from "../contexts/ProductsContext";
 
 const Navbar = () => {
+  const { cartItems, wishList } = useContext(CartContext);
+
   const links = (
     <div className="flex gap-6 text-lg">
       <NavLink
@@ -69,11 +72,21 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-4 text-xl">
-          <p>
+          <p className="relative">
             <GrCart />
+            {cartItems.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-sm rounded-full h-4 w-4 flex items-center justify-center">
+                {cartItems.length}
+              </span>
+            )}
           </p>
-          <p>
+          <p className="relative">
             <FaRegHeart />
+            {wishList.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-sm rounded-full h-4 w-4 flex items-center justify-center">
+                {wishList.length}
+              </span>
+            )}
           </p>
         </div>
       </div>

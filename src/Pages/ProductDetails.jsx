@@ -1,13 +1,15 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaStar, FaRegHeart } from "react-icons/fa";
-
+import { CartContext } from "../contexts/ProductsContext";
 
 const ProductDetails = () => {
   const { product_id } = useParams();
   const allProduct = useLoaderData();
   const [products, setProducts] = useState({});
+
+  const { addToCart, addToWishList } = useContext(CartContext);
 
   useEffect(() => {
     const product = allProduct.find(
@@ -25,10 +27,10 @@ const ProductDetails = () => {
     description,
     Specification,
   } = products;
-
+  /* 
   const handleCart = (products) => {
     console.log(products);
-  };
+  }; */
 
   return (
     <div className="relative bg-[#9538E2] text-white   px-4 rounded-lg border-2 mb-[500px] ">
@@ -93,12 +95,13 @@ const ProductDetails = () => {
           </div>
           <div className="flex gap-4">
             <button
-              onClick={() => handleCart(products)}
+               onClick={() => addToCart(products)} 
               className="btn border-purple-400 border"
             >
               Add To Cart
             </button>
-            <button className="btn  border-purple-400 border">
+            <button onClick={() => addToWishList(products)}
+             className="btn  border-purple-400 border">
               <FaRegHeart />
             </button>
           </div>
