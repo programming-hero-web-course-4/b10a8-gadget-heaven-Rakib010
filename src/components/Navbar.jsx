@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { FaRegHeart } from "react-icons/fa";
 import { CartContext } from "../contexts/ProductsContext";
@@ -7,12 +7,19 @@ import { CartContext } from "../contexts/ProductsContext";
 const Navbar = () => {
   const { cartItems, wishList } = useContext(CartContext);
 
+  const location = useLocation();
+
+  const bgChange =
+    location.pathname === "/" ? "bg-[#9538E2]" : "bg-white text-black";
+
   const links = (
     <div className="flex gap-6 text-lg">
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `font-semibold ${isActive ? "" : "hover:text-purple-600"}`
+          `font-semibold ${
+            isActive ? "underline underline-offset-4" : "hover:text-purple-600"
+          }`
         }
       >
         <a>Home</a>
@@ -21,7 +28,9 @@ const Navbar = () => {
       <NavLink
         to="/statistics"
         className={({ isActive }) =>
-          `font-semibold ${isActive ? "" : "hover:text-purple-500"}`
+          `font-semibold ${
+            isActive ? "underline underline-offset-4" : "hover:text-purple-500"
+          }`
         }
       >
         <a>Statistics</a>
@@ -30,17 +39,29 @@ const Navbar = () => {
       <NavLink
         to="/dashboard"
         className={({ isActive }) =>
-          `font-semibold ${isActive ? "" : "hover:text-purple-500"}`
+          `font-semibold ${
+            isActive ? "underline underline-offset-4" : "hover:text-purple-500"
+          }`
         }
       >
         <a>Dashboard</a>
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          `font-semibold ${
+            isActive ? "underline underline-offset-4" : "hover:text-purple-500"
+          }`
+        }
+      >
+        <a>About</a>
       </NavLink>
     </div>
   );
 
   return (
-    <div className="">
-      <div className="navbar">
+    <div className="bg-[#9538E2] text-white rounded-t-lg ">
+      <div className={`navbar ${bgChange}`}>
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -71,8 +92,8 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end gap-4 text-xl">
-          <p className="relative">
+        <div className="navbar-end gap-4  text-xl">
+          <p className="relative border p-2 rounded-full text-pink-400 bg-white ">
             <GrCart />
             {cartItems.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-sm rounded-full h-4 w-4 flex items-center justify-center">
@@ -80,7 +101,7 @@ const Navbar = () => {
               </span>
             )}
           </p>
-          <p className="relative">
+          <p className="relative mr-8 border p-2 rounded-full text-pink-400 bg-white ">
             <FaRegHeart />
             {wishList.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-sm rounded-full h-4 w-4 flex items-center justify-center">

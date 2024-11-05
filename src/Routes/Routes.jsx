@@ -5,12 +5,14 @@ import Home from "../Pages/Home";
 import Products from "../components/Products";
 import Statistics from "../Pages/Statistics";
 import ProductDetails from "../Pages/ProductDetails";
-
+import ErrorMsg from "../Pages/ErrorMsg";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorMsg></ErrorMsg>,
     children: [
       {
         path: "/",
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },

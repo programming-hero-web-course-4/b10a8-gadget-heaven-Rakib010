@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Heading from "../components/Heading";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaStar, FaRegHeart } from "react-icons/fa";
@@ -9,6 +15,8 @@ const ProductDetails = () => {
   const allProduct = useLoaderData();
   const [products, setProducts] = useState({});
 
+  let btnRef = useRef();
+
   const { addToCart, addToWishList } = useContext(CartContext);
 
   useEffect(() => {
@@ -17,6 +25,12 @@ const ProductDetails = () => {
     );
     setProducts(product);
   }, [allProduct, product_id]);
+
+  const handleClick = (e) => {
+    if (btnRef.current) {
+      btnRef.current.setAttribute("disabled", "disabled");
+    }
+  };
 
   const {
     product_image,
@@ -95,13 +109,19 @@ const ProductDetails = () => {
           </div>
           <div className="flex gap-4">
             <button
-               onClick={() => addToCart(products)} 
+              onClick={() => addToCart(products)}
               className="btn border-purple-400 border"
             >
               Add To Cart
             </button>
-            <button onClick={() => addToWishList(products)}
-             className="btn  border-purple-400 border">
+            <button
+              ref={btnRef}
+              onClick={() => {
+                addToWishList(products);
+                handleClick();
+              }}
+              className="btn border-purple-400 border"
+            >
               <FaRegHeart />
             </button>
           </div>

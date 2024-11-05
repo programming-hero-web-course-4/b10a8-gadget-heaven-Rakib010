@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const CartContext = createContext();
 
 const ProductsContext = ({ children }) => {
@@ -9,31 +10,28 @@ const ProductsContext = ({ children }) => {
   // Add to Cart
   const addToCart = (product) => {
     setCartItems((Items) => {
-      // Check if product already in cart
-      if (Items.find((item) => item.product_id === product.product_id)) {
+      const alreadyInCart = Items.find(
+        (item) => item.product_id === product.product_id
+      );
+
+      if (alreadyInCart) {
+        toast.warn("Item already in cart");
         return Items;
-      } else{
-        alert('already added')
       }
+
+      toast.success("Item added to cart");
       return [...Items, product];
     });
   };
 
-  /*  const addToWishList = (product) => {
-    if (!wishList.find((item) => item.product_id === product.product_id)) {
-      setWishList((Items) => [...Items, product]);
-    }
-  }; */
-
   // Add to Wishlist
   const addToWishList = (product) => {
     setWishList((Items) => {
-      // Check if product already in wishlist
       if (Items.find((item) => item.product_id === product.product_id)) {
+        toast.warn("Item already in wishlist");
         return Items;
-      } else{
-        alert('Already added')
       }
+      toast.success("Item added to wishlist");
       return [...Items, product];
     });
   };
@@ -46,26 +44,24 @@ const ProductsContext = ({ children }) => {
 
   // Sort cart items
   const sortCartByPrice = () => {
-    setCartItems((Item) =>
-      [...Item].sort((a, b) => b.price - a.price)
-    );
+    setCartItems((Item) => [...Item].sort((a, b) => b.price - a.price));
   };
 
   return (
-    <div>
-      <CartContext.Provider
-        value={{
-          cartItems,
-          wishList,
-          addToCart,
-          addToWishList,
-          totalCartPrice,
-          sortCartByPrice,
-        }}
-      >
-        {children}
-      </CartContext.Provider>
-    </div>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        wishList,
+        addToCart,
+        addToWishList,
+        totalCartPrice,
+        sortCartByPrice,
+        setCartItems,
+      }}
+    >
+      {children}
+      <ToastContainer position="top-right" autoClose={3000} />
+    </CartContext.Provider>
   );
 };
 

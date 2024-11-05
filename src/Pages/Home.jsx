@@ -1,17 +1,20 @@
 import Hero from "../components/Hero";
-import Heading from "../components/Heading";
 import Categories from "../components/Categories";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 const Home = () => {
   return (
     <div>
+      {/* Use Helmet to set the page title */}
+      <Helmet>
+        <title>Home | GadgetHeaven</title>
+      </Helmet>
+
       <Hero />
 
-      {/* Heading */}
-
       <div className="flex gap-4 mt-72">
-        {/* categories */}
-        <Categories></Categories>
+        <Categories />
         <Outlet />
       </div>
     </div>
