@@ -6,7 +6,7 @@ import Products from "../components/Products";
 import Statistics from "../Pages/Statistics";
 import ProductDetails from "../Pages/ProductDetails";
 import ErrorMsg from "../Pages/ErrorMsg";
-import About from "../Pages/About";
+import Trending from "../Pages/Trending";
 
 const router = createBrowserRouter([
   {
@@ -45,8 +45,9 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
       },
       {
-        path: "/about",
-        element: <About></About>,
+        path: "/trending",
+        element: <Trending></Trending>,
+        loader: () => fetch("../TrendingProduct.json"),
       },
     ],
   },

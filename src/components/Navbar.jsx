@@ -47,14 +47,14 @@ const Navbar = () => {
         <a>Dashboard</a>
       </NavLink>
       <NavLink
-        to="/about"
+        to="/trending"
         className={({ isActive }) =>
           `font-semibold ${
             isActive ? "underline underline-offset-4" : "hover:text-purple-500"
           }`
         }
       >
-        <a>About</a>
+        <a>Trending Product</a>
       </NavLink>
     </div>
   );
