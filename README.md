@@ -6,7 +6,7 @@ This project is an e-commerce dashboard that lets users manage a cart and wishli
 
 - Components and Props
 - State Management
-- Effect Hook
+- Hook
 - Conditional Rendering
 - Routing with React Router
 
