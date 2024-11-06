@@ -9,8 +9,11 @@ const ErrorMsg = () => {
       <p>{error.statusText || error.message}</p>
       {error.status === 404 && (
         <div>
+          <h2>Page NoT Found</h2>
           <Link to="/">
-            <button className="btn mt-8 border-2 border-purple-600">Go Home</button>
+            <button className="btn mt-8 border-2 border-purple-600">
+              Go Home
+            </button>
           </Link>
         </div>
       )}

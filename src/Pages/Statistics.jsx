@@ -23,7 +23,7 @@ const Statistics = () => {
       </Helmet>
       <Heading
         title="Statistics"
-        subtitle="Join a community of tech enthusiasts with over 10,000 satisfied customers and a 4.8-star average rating. With 95% reporting increased convenience and productivity, our gadgets are designed to enhance every experience."
+        subtitle="Join a community of tech enthusiasts with over 10,000 satisfied customers and a 4.5-star average rating. With 95% reporting increased convenience and productivity, our gadgets are designed to enhance every experience."
       />
       <div className="mt-20"></div>
       <ResponsiveContainer width="100%" height={400}>

@@ -14,9 +14,9 @@ const Dashboard = () => {
 
   const handlePurchase = () => {
     if (cartItems.length > 0) {
-      setPurchaseTotal(totalCartPrice); // Set the final total price
-      setShowModal(true); // Show the modal
-      setCartItems([]); // Clear the cart after purchase
+      setPurchaseTotal(totalCartPrice); 
+      setShowModal(true); 
+      setCartItems([]); 
     }
   };
 
