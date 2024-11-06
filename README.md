@@ -27,3 +27,4 @@ This project is an e-commerce dashboard that lets users manage a cart and wishli
 https://github.com/.../blob/main/Batch-10_Assignment-08.pdf
 
 ## Live Website Link
+dizzy-zoo.surge.sh

@@ -22,7 +22,7 @@ const Modal = ({ total, onClose }) => {
         <img src={photo} alt="" />
         <h3 className="font-bold text-lg">Payment Successful</h3>
         <p className="py-3">Thank you for your purchase!</p>
-        <p className="font-semibold">Total: ${total || 0}</p>
+        <p className="font-semibold">Total: ${total}</p>
         <div className="modal-action">
           <button
             onClick={handleClose}

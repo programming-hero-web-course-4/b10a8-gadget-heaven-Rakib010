@@ -26,6 +26,7 @@ const ProductDetails = () => {
     setProducts(product);
   }, [allProduct, product_id]);
 
+
   const handleClick = (e) => {
     if (btnRef.current) {
       btnRef.current.setAttribute("disabled", "disabled");
@@ -41,10 +42,7 @@ const ProductDetails = () => {
     description,
     Specification,
   } = products;
-  /* 
-  const handleCart = (products) => {
-    console.log(products);
-  }; */
+
 
   return (
     <div className="relative bg-[#9538E2] text-white   px-4 rounded-lg border-2 mb-[500px] ">
@@ -55,7 +53,7 @@ const ProductDetails = () => {
 
       {/*Product Card */}
       <div className="absolute top-[200px] md:top-[160px] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[70%] bg-white text-gray-800 rounded-lg shadow-lg flex flex-col lg:flex-row items-start p-4 md:p-10 ">
-        {/* Image Section */}
+   
         <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0">
           <img
             className="w-96 h-[400px] object-cover rounded-xl bg-slate-300 "

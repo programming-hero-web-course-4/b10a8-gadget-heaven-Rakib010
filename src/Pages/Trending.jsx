@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Heading from "../components/Heading";
 import { useLoaderData } from "react-router-dom";
-import { FaStar } from "react-icons/fa"; // Importing star icon for ratings
+import { FaStar } from "react-icons/fa"; 
 
 const Trending = () => {
   const product = useLoaderData();
@@ -56,7 +56,6 @@ const Trending = () => {
                 <p className="text-sm text-gray-600">{p.rating} / 5</p>
               </div>
 
-              {/* Reviews and counts Section */}
               <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-600">Reviews: {p.reviews}</p>
 

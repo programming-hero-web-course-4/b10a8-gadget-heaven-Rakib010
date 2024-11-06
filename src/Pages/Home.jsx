@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 const Home = () => {
   return (
     <div>
-      {/* Use Helmet to set the page title */}
+      
       <Helmet>
         <title>Home | GadgetHeaven</title>
       </Helmet>
