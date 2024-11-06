@@ -24,7 +24,7 @@ This project is an e-commerce dashboard that lets users manage a cart and wishli
 
 ## Requirement Document Link
 
-https://github.com/.../blob/main/Batch-10_Assignment-08.pdf
+https://github.com/ProgrammingHero1/B10-A8-gadget-heaven/blob/main/Batch-10_Assignment-08.pdf
 
 ## Live Website Link
 dizzy-zoo.surge.sh
